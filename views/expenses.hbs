@@ -1,0 +1,68 @@
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a id="home" class="left-floated" href="/">MoneyGone</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a class="right-floated" href="/about">{{user.username}}</a>
+                </li>
+
+                <li>
+                    <a class="right-floated" href="/auth/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="actions">
+              <form action="/edit" method="POST">
+                <h2>Salary time? Refill your account amount.</h2>
+                <input type="text" id="refill-amount" name="refill">
+                <button type="submit">Refill</button>
+            </form>
+            <div>
+                <h2>New expense comming up?</h2>
+                <a href="/create">Add it now</a>
+            </div>
+        </section>
+
+        <hr class="separator">
+
+        <table class="expenses">
+            {{#if products}}
+            <thead>
+                <tr>
+                    <th>Merchant</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+
+                {{#each products}}
+                {{>expense}}
+                {{/each}}
+
+            </thead>
+            {{else}}
+            <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
+
+            {{/if}}
+            <tbody>
+
+
+            </tbody>
+        </table>
+
+
+    </main>
+
+</body>
+
+</html>
